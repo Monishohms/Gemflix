@@ -1,12 +1,94 @@
 import React from "react";
 import Header from "./Header";
 import { useState } from "react";
+import { checkValidData } from "../utils/Validate";
+import { useRef } from "react";
+import { auth } from "../utils/Firebase";
+import {
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+} from "firebase/auth";
+import { useDispatch } from "react-redux";
+import { addUser } from "../utils/userSlice";
+import { useNavigate } from "react-router-dom";
+import { updateProfile } from "firebase/auth";
 
 const Login = () => {
   const [signInForm, setSignInForm] = useState(true);
+  const [errorMessage, setErrorMessage] = useState();
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const name = useRef(null);
+  const email = useRef(null);
+  const password = useRef(null);
 
   const toggleSignInForm = () => {
     setSignInForm(!signInForm);
+  };
+
+  const handleButtonClick = () => {
+    // Validate The Form fields
+    const msg = checkValidData(email.current.value, password.current.value);
+    setErrorMessage(msg);
+
+    if (msg) return;
+
+    if (!signInForm) {
+      //Create a new account by passing the new user's email address and password to createUserWithEmailAndPassword
+      //If the new account was created, the user is signed in automatically.
+
+      createUserWithEmailAndPassword(
+        auth,
+        email.current.value,
+        password.current.value
+      )
+        .then((userCredential) => {
+          // Signed up
+          const user = userCredential.user;
+
+          updateProfile(user, {
+            //Update a user's profile - You can update a user's basic profile information
+            displayName: name.current.value,
+          })
+            .then(() => {
+              // Profile updated!
+              const { uid, email, displayName } = auth.currentUser;
+              dispatch(
+                addUser({ uid: uid, email: email, displayName: displayName })
+              );
+              navigate("./browse");
+            })
+            .catch((error) => {
+              // An error occurred
+              setErrorMessage(error.message);
+            });
+          console.log(user);
+        })
+        .catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          setErrorMessage(errorCode + " " + errorMessage);
+        });
+    } else {
+      // Sign in existing user.
+
+      signInWithEmailAndPassword(
+        auth,
+        email.current.value,
+        password.current.value
+      )
+        .then((userCredential) => {
+          const user = userCredential.user;
+
+          navigate("./browse");
+          console.log(user);
+        })
+        .catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          setErrorMessage(errorCode + " " + errorMessage);
+        });
+    }
   };
   return (
     <div>
@@ -19,36 +101,46 @@ const Login = () => {
         />
       </div>
 
-      <form className="absolute w-3/12 my-36 p-12 mx-auto right-0 left-0  bg-black text-white bg-opacity-80 ">
+      <form
+        onSubmit={(e) => e.preventDefault()}
+        className="absolute w-3/12 my-36 p-12 mx-auto right-0 left-0  bg-black text-white bg-opacity-80 "
+      >
         <h1 className="py-4 font-extrabold text-3xl">
           {" "}
           {signInForm ? "Sign In" : "Sign up"}
         </h1>
         {!signInForm && (
           <input
+            ref={name}
             type="text"
             placeholder="Enter User Name"
             className=" w-full my-3 p-3 rounded-lg bg-black bg-opacity-20 border-solid border border-white "
           />
         )}
         <input
+          ref={email}
           type="text"
           placeholder="Enter Email ID"
           className=" w-full my-3 p-3 rounded-lg bg-black bg-opacity-20 border-solid border border-white "
         />
         <input
+          ref={password}
           type="password"
           placeholder="Enter Password"
           className=" w-full p-3 my-3 rounded-lg bg-black bg-opacity-20 border-solid border border-white"
         />
-        {!signInForm && (
+        {/* {!signInForm && (
           <input
             type="password"
             placeholder="Confirm Password"
             className=" w-full p-3 my-3 rounded-lg bg-black bg-opacity-20 border-solid border border-white"
           />
-        )}
-        <button className="cursor-pointer w-full my-3 p-2 font-bold bg-red-600 rounded-lg">
+        )} */}
+        <p>{errorMessage}</p>
+        <button
+          className="cursor-pointer w-full my-3 p-2 font-bold bg-red-600 rounded-lg"
+          onClick={handleButtonClick}
+        >
           {" "}
           {signInForm ? "Sign In" : "Sign up"}
         </button>
