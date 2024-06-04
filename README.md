@@ -4,11 +4,11 @@
 
 ## Overview
 
-Netflix-Gemini is a lightweight, customizable, and efficient tool for exploring and analyzing Netflix's extensive collection of movies and TV shows. Built with simplicity and speed in mind, this application provides users with a seamless browsing experience, allowing them to discover new content, save favorites, and track their viewing history.
+Netflix-Gemini is a lightweight, customizable, and efficient tool for exploring and analyzing Netflix's extensive collection of movies. Built with simplicity and speed in mind, this application provides users with a seamless browsing experience, allowing them to discover new content, save favorites, and track their viewing history.
 
 ## Features
 
-- **Explore Netflix Catalog:** Browse through Netflix's vast library of movies and TV shows effortlessly.
+- **Explore Netflix Catalog:** Browse through Netflix's vast library of movies effortlessly.
 - **Search Functionality:** Quickly find specific titles using the search feature.
 - **Detailed Information:** Access comprehensive details about each title, including synopsis, cast, ratings, and more.
 - **User Profiles:** Create personalized user profiles to track viewing history and manage favorites.
