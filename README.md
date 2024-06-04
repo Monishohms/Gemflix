@@ -59,6 +59,6 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 Special thanks to the creators of the [Netflix API](https://www.netflix.com/developer) for providing access to their data.
 
----
 
-Feel free to customize this README further according to your project's specific needs and additional features!
+
+
