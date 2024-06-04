@@ -49,14 +49,3 @@ Contributions are welcome! If you'd like to contribute to Netflix-Gemini, please
 
 Netflix-Gemini was developed by Monishohms.
 
-## License
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
-
-## Acknowledgments
-
-Special thanks to the creators of the [Netflix API](https://www.netflix.com/developer) for providing access to their data.
-
-
-
-
