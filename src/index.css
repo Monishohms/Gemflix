@@ -1,3 +1,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.no-scrollbar-custom::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar-custom {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
