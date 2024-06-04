@@ -1,8 +1,6 @@
-Certainly! Below is a more detailed README file for the "Netflix-Gemini" GitHub project:
 
----
 
-# Netflix-Gemini
+# Netflix-Gemini: Your Ultimate Film Guide!
 
 ## Overview
 
