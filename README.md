@@ -49,7 +49,7 @@ Contributions are welcome! If you'd like to contribute to Netflix-Gemini, please
 
 Netflix-Gemini was developed by Monishohms.
 
-## Creating a Netflix-Gemini project involves several steps:
+## Creating a Netflix-Gemini project involves following steps:
 
 - Create React App
 - Configured TailwindCSS
