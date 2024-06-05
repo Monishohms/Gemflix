@@ -4,9 +4,9 @@ const MovieCards = ({ posterPath, original_title, release_date }) => {
   if (!posterPath) return null;
   return (
     <div className=" mt-2 hover:-translate-y-5  hover:scale-90 transition-all py-4">
-      <div className=" min-w-48">
+      <div className=" h-72 w-48">
         <img
-          className="object-cover pr-4 cursor-pointer  mx-2 min-w-48 "
+          className="object-cover pr-4 cursor-pointer mx-2 w-full h-full "
           alt="Movie Card"
           src={POSTER_CDN + posterPath}
         />

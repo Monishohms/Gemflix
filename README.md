@@ -1,16 +1,12 @@
-Certainly! Below is a more detailed README file for the "Netflix-Gemini" GitHub project:
-
----
-
-# Netflix-Gemini
+# Netflix-Gemini: Your Ultimate Film Guide! 🎬
 
 ## Overview
 
-Netflix-Gemini is a lightweight, customizable, and efficient tool for exploring and analyzing Netflix's extensive collection of movies and TV shows. Built with simplicity and speed in mind, this application provides users with a seamless browsing experience, allowing them to discover new content, save favorites, and track their viewing history.
+Netflix-Gemini is a lightweight, customizable, and efficient tool for exploring and analyzing Netflix's extensive collection of movies. Built with simplicity and speed in mind, this application provides users with a seamless browsing experience, allowing them to discover new content, save favorites, and track their viewing history.
 
 ## Features
 
-- **Explore Netflix Catalog:** Browse through Netflix's vast library of movies and TV shows effortlessly.
+- **Explore Netflix Catalog:** Browse through Netflix's vast library of movies effortlessly.
 - **Search Functionality:** Quickly find specific titles using the search feature.
 - **Detailed Information:** Access comprehensive details about each title, including synopsis, cast, ratings, and more.
 - **User Profiles:** Create personalized user profiles to track viewing history and manage favorites.
@@ -53,6 +49,7 @@ Contributions are welcome! If you'd like to contribute to Netflix-Gemini, please
 
 Netflix-Gemini was developed by Monishohms.
 
+<<<<<<< HEAD
 ## Creating a Netflix-Gemini project involves several steps:
 
 - Create React App
@@ -89,3 +86,5 @@ Netflix-Gemini was developed by Monishohms.
 - Update Store with new movies Data
 - Create Secondary container
 - Add some styles
+=======
+>>>>>>> 38536f8333aa946cca0968194addb60dfbddee35

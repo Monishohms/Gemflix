@@ -1,4 +1,6 @@
 import React from "react";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import Header from "./Header";
 import { useState } from "react";
 import { checkValidData } from "../utils/Validate";
@@ -10,7 +12,6 @@ import {
 } from "firebase/auth";
 import { useDispatch } from "react-redux";
 import { addUser } from "../utils/userSlice";
-
 import { updateProfile } from "firebase/auth";
 
 const Login = () => {
@@ -45,6 +46,12 @@ const Login = () => {
         .then((userCredential) => {
           // Signed up
           const user = userCredential.user;
+          toast.success("You have been logged in !", {
+            position: "top-center",
+            theme: "dark",
+            enter: "zoomIn",
+            exit: "zoomOut",
+          });
 
           updateProfile(user, {
             //Update a user's profile - You can update a user's basic profile information
@@ -52,6 +59,7 @@ const Login = () => {
           })
             .then(() => {
               // Profile updated!
+
               const { uid, email, displayName } = auth.currentUser;
               dispatch(
                 addUser({ uid: uid, email: email, displayName: displayName })
@@ -77,6 +85,12 @@ const Login = () => {
       )
         .then((userCredential) => {
           const user = userCredential.user;
+          toast.success("You have been logged in !", {
+            position: "top-center",
+            theme: "dark",
+            enter: "zoomIn",
+            exit: "zoomOut",
+          });
         })
         .catch((error) => {
           const errorCode = error.code;
@@ -124,19 +138,13 @@ const Login = () => {
           placeholder="Enter Password"
           className=" w-full p-3 my-3 rounded-lg bg-black bg-opacity-20 border-solid border border-white"
         />
-        {/* {!signInForm && (
-          <input
-            type="password"
-            placeholder="Confirm Password"
-            className=" w-full p-3 my-3 rounded-lg bg-black bg-opacity-20 border-solid border border-white"
-          />
-        )} */}
+
         <p>{errorMessage}</p>
+
         <button
           className="cursor-pointer w-full my-3 p-2 font-bold bg-red-600 rounded-lg"
           onClick={handleButtonClick}
         >
-          {" "}
           {signInForm ? "Sign In" : "Sign up"}
         </button>
 

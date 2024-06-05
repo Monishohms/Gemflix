@@ -1,3 +1,6 @@
+import React from "react";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { FaSignOutAlt } from "react-icons/fa";
 import { onAuthStateChanged, signOut } from "firebase/auth";
 import { auth } from "../utils/Firebase";
@@ -21,8 +24,17 @@ const Header = () => {
 
   const handleSignOut = () => {
     signOut(auth)
-      .then(() => {})
+      .then(() => {
+        toast.success("You have been logged out !", {
+          position: "top-center",
+          theme: "dark",
+        });
+      })
       .catch((error) => {
+        toast.warning("error occured", {
+          position: "top-center",
+          theme: "dark",
+        });
         navigate("/error");
       });
   };
@@ -52,25 +64,29 @@ const Header = () => {
       <img className="w-48" src={LOGO_URL} alt="logo" />
 
       <div className=" flex items-center">
-        <button
-          onClick={handleGptSearch}
-          className="cursor-pointer flex items-center rounded-lg  border mr-20 p-3 text-white font-bold  bg-black"
-        >
-          {gptStatus ? (
-            <>
-              <FaHouse className="mr-2 font-bold text-lg text-green-300" />
-              Home Page
-            </>
-          ) : (
-            <>
-              <SiOpenai className="mr-2 font-bold text-lg text-green-300" /> AI
-              SEARCH
-            </>
-          )}
-        </button>
-        <button className="cursor-pointer " onClick={handleSignOut}>
-          <FaSignOutAlt className="text-3xl text-red-600 shadow-lg" />
-        </button>
+        {auth.currentUser && (
+          <button
+            onClick={handleGptSearch}
+            className="cursor-pointer flex items-center rounded-lg  border mr-20 p-3 text-white font-bold  bg-black"
+          >
+            {gptStatus ? (
+              <>
+                <FaHouse className="mr-2 font-bold text-lg text-green-300" />
+                Home Page
+              </>
+            ) : (
+              <>
+                <SiOpenai className="mr-2 font-bold text-lg text-green-300" />{" "}
+                AI SEARCH
+              </>
+            )}
+          </button>
+        )}
+        {auth.currentUser && (
+          <button className="cursor-pointer " onClick={handleSignOut}>
+            <FaSignOutAlt className="text-3xl text-red-600 shadow-lg" />
+          </button>
+        )}
       </div>
     </div>
   );
