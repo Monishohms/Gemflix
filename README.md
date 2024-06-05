@@ -121,6 +121,7 @@ Netflix-Gemini was developed by Monishohms.
 - Update moviesSlice
 - Update Store with new movies Data
 - Create Secondary container
+- Add some styles
 
 ## Author
 
