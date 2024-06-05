@@ -86,7 +86,7 @@ Netflix-Gemini was developed by Monishohms.
 - Create Secondary container
 - Add some styles
 
-## Creating a Netflix-Gemini project involves several steps:
+## Creating a Netflix-Gemini project involves following steps:
 
 - Create React App
 - Configured TailwindCSS
