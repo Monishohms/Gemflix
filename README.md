@@ -49,8 +49,7 @@ Contributions are welcome! If you'd like to contribute to Netflix-Gemini, please
 
 Netflix-Gemini was developed by Monishohms.
 
-<<<<<<< HEAD
-## Creating a Netflix-Gemini project involves several steps:
+## Creating a Netflix-Gemini project involves following steps:
 
 - Create React App
 - Configured TailwindCSS
@@ -86,5 +85,43 @@ Netflix-Gemini was developed by Monishohms.
 - Update Store with new movies Data
 - Create Secondary container
 - Add some styles
-=======
->>>>>>> 38536f8333aa946cca0968194addb60dfbddee35
+
+<<<<<<< HEAD
+
+## Creating a Netflix-Gemini project involves several steps:
+
+- Create React App
+- Configured TailwindCSS
+- Header
+- Routing of App
+- Login Form
+- Sign up Form
+- Form Validation
+- useRef Hook
+- Firebase Setup
+- Deploying our app to production
+- Create SignUp/SignIn User Account
+- Implement Sign In user Api
+- Created Redux Store with userslice
+- Implemented Sign out
+- Update Profile
+- BugFix: Sign up user displayName and profile picture update
+- BugFix: if the user is not logged in Redirect /browse to Login Page and vice-versa
+- Unsubscibed to the onAuthStateChanged callback
+- Add hardcoded values to the constants file
+- Regiter TMDB API & create an app & get access token
+- Get Data from TMDB now playing movies List API
+- Custom Hook for Now Playing Movies
+- Create movieSlice
+- Update Store with movies Data
+- Planning for MainContauiner & secondary container
+- Fetch Data for Trailer Video
+- Update Store with Trailer Video Data
+- Embedded the Yotube video and make it autoplay and mute
+- Tailwind Classes to make Main Container Look awesome
+- Create Some Custom Hook for Movies
+- Update moviesSlice
+- Update Store with new movies Data
+- Create Secondary container
+- # Add some styles
+  > > > > > > > 38536f8333aa946cca0968194addb60dfbddee35
