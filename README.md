@@ -86,8 +86,6 @@ Netflix-Gemini was developed by Monishohms.
 - Create Secondary container
 - Add some styles
 
-<<<<<<< HEAD
-
 ## Creating a Netflix-Gemini project involves several steps:
 
 - Create React App
@@ -123,5 +121,4 @@ Netflix-Gemini was developed by Monishohms.
 - Update moviesSlice
 - Update Store with new movies Data
 - Create Secondary container
-- # Add some styles
-  > > > > > > > 38536f8333aa946cca0968194addb60dfbddee35
+
