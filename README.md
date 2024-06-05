@@ -126,6 +126,7 @@ Netflix-Gemini was developed by Monishohms.
 ## Author
 
 Monish Lal
+
 Email: monishlal2105@gmail.com
 
 
