@@ -1,4 +1,4 @@
-# Netflix-Gemini: Your Ultimate Film Guide! 🎬
+# Gemflix: Your Ultimate Film Guide! 🎬
 
 ## Overview
 
