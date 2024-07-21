@@ -123,5 +123,9 @@ Netflix-Gemini was developed by Monishohms.
 - Update moviesSlice
 - Update Store with new movies Data
 - Create Secondary container
-- # Add some styles
-  > > > > > > > 38536f8333aa946cca0968194addb60dfbddee35
+- Add some styles
+
+## Author
+
+- Name: Monish Lal
+- Email: monishlal2105@gmail.com

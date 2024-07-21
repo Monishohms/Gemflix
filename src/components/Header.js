@@ -10,7 +10,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { addUser, removeUser } from "../utils/userSlice";
 import { LOGO_URL } from "../utils/Constant";
 import { toggleGptSearchView } from "../utils/gptSearchSlice";
-import { SiOpenai } from "react-icons/si";
+import { SiGooglegemini } from "react-icons/si";
 import { FaHouse } from "react-icons/fa6";
 
 const Header = () => {
@@ -67,16 +67,16 @@ const Header = () => {
         {auth.currentUser && (
           <button
             onClick={handleGptSearch}
-            className="cursor-pointer flex items-center rounded-lg  border mr-20 p-3 text-white font-bold  bg-black"
+            className="cursor-pointer flex items-center rounded-lg  border mr-20 p-3 text-white font-bold  bg-black active:border-blue-300"
           >
             {gptStatus ? (
               <>
-                <FaHouse className="mr-2 font-bold text-lg text-green-300" />
+                <FaHouse className="mr-2 font-bold text-xl bg-red-500 rounded-lg" />
                 Home Page
               </>
             ) : (
               <>
-                <SiOpenai className="mr-2 font-bold text-lg text-green-300" />{" "}
+                <SiGooglegemini className="mr-2 font-bold text-xl text-blue-500 bg-white rounded-xl" />
                 AI SEARCH
               </>
             )}
@@ -84,7 +84,7 @@ const Header = () => {
         )}
         {auth.currentUser && (
           <button className="cursor-pointer " onClick={handleSignOut}>
-            <FaSignOutAlt className="text-3xl text-red-600 shadow-lg" />
+            <FaSignOutAlt className="text-3xl text-red-500 hover:text-red-600 active:text-red-700 shadow-lg" />
           </button>
         )}
       </div>

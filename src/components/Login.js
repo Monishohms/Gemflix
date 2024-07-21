@@ -13,6 +13,7 @@ import {
 import { useDispatch } from "react-redux";
 import { addUser } from "../utils/userSlice";
 import { updateProfile } from "firebase/auth";
+import Footer from "./Footer";
 
 const Login = () => {
   const [signInForm, setSignInForm] = useState(true);
@@ -159,6 +160,7 @@ const Login = () => {
           <b className="font-bold"> Learn more.</b>
         </p>
       </form>
+      <Footer />
     </div>
   );
 };

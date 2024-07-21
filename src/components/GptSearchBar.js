@@ -3,7 +3,7 @@ import { BsSearch } from "react-icons/bs";
 import { GoogleGenerativeAI } from "@google/generative-ai";
 import { OPEN_API_KEY } from "../utils/Constant";
 import { API_options } from "../utils/Constant";
-import { addGptMovieResults } from "../utils/gptSearchSlice";
+import { addGptMovieResults, toggleLoading } from "../utils/gptSearchSlice";
 import { useDispatch } from "react-redux";
 
 const GptSearchBar = () => {
@@ -17,13 +17,13 @@ const GptSearchBar = () => {
         "&include_adult=false&language=en-US&page=1",
       API_options
     );
-    const json = await data.json();
-
+    const json = await data?.json();
     return json?.results;
   };
 
   const handleGptSearch = async () => {
-    console.log(searchText.current.value);
+    dispatch(toggleLoading());
+    //console.log(searchText.current.value);
 
     const genAI = new GoogleGenerativeAI(OPEN_API_KEY);
     const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
@@ -36,15 +36,16 @@ const GptSearchBar = () => {
     const result = await model.generateContent(prompt);
     const response = await result.response;
     const text = response.text().split(",");
-    console.log(text);
+    //console.log(text);
 
     const promiseArray = text?.map((movie) => movieSearch(movie));
 
     const tmdbResults = await Promise.all(promiseArray);
-    console.log(tmdbResults);
+    //console.log(tmdbResults);
     dispatch(
       addGptMovieResults({ movieNames: text, movieResults: tmdbResults })
     );
+    dispatch(toggleLoading());
   };
 
   return (
@@ -66,7 +67,7 @@ const GptSearchBar = () => {
             className="p-3 rounded-l-lg text-center w-full outline-none  font-bold "
           />
           <button
-            className="rounded-r-lg flex  items-center font-bold text-white w-20 p-2 bg-red-700 hover:border-red-800 active:bg-red-900 outline-none"
+            className="rounded-r-lg flex  items-center font-bold text-white w-20 p-2 bg-red-700 hover:bg-red-800 active:bg-red-900 outline-none"
             onClick={handleGptSearch}
           >
             &nbsp;&nbsp;&nbsp; <BsSearch className="font-extrabold text-4xl" />

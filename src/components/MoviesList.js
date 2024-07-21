@@ -12,6 +12,11 @@ const MoviesList = ({ title, movies }) => {
             posterPath={movie?.poster_path}
             original_title={movie?.original_title}
             release_date={movie?.release_date}
+            movie_id={movie?.id}
+            popularity={movie?.popularity}
+            narrative={movie?.overview}
+            language={movie?.original_language}
+            vote_count={movie?.vote_count}
           />
         ))}
       </div>

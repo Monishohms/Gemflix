@@ -1,9 +1,47 @@
-import { POSTER_CDN } from "../utils/Constant";
+import { API_options, POSTER_CDN } from "../utils/Constant";
+import React, { useState } from "react";
+import ModalContent from "./ModalContent";
+import { createPortal } from "react-dom";
 
-const MovieCards = ({ posterPath, original_title, release_date }) => {
+const MovieCards = ({
+  posterPath,
+  original_title,
+  release_date,
+  movie_id,
+  popularity,
+  narrative,
+  language,
+  vote_count,
+}) => {
+  const [showModal, setShowModal] = useState(false);
+  const [showKey, setShowKey] = useState(null);
+  const movieId = movie_id;
+  const handleMovieInfo = async () => {
+    setShowModal(true);
+    console.log(showModal);
+
+    const data = await fetch(
+      " https://api.themoviedb.org/3/movie/" + movieId + "/videos",
+      API_options
+    );
+    const json = await data?.json();
+
+    const filterData = json?.results?.filter(
+      (data) => data?.type === "Trailer"
+    );
+    const trailer = filterData.length ? filterData[0] : data?.results[0];
+    const trailer_key = trailer?.key;
+    setShowKey(trailer_key);
+    console.log(showModal);
+    console.log(trailer_key);
+  };
+
   if (!posterPath) return null;
   return (
-    <div className=" mt-2 hover:-translate-y-5  hover:scale-90 transition-all py-4">
+    <div
+      onClick={handleMovieInfo}
+      className=" mt-2 hover:-translate-y-5  hover:scale-90 transition-all py-4"
+    >
       <div className=" h-72 w-48">
         <img
           className="object-cover pr-4 cursor-pointer mx-2 w-full h-full "
@@ -15,6 +53,21 @@ const MovieCards = ({ posterPath, original_title, release_date }) => {
         {original_title}
       </p>
       <p className="text-gray-300 font-light text-sm pl-2 ">{release_date}</p>
+      {showModal &&
+        createPortal(
+          <ModalContent
+            onClose={() => setShowModal(false)}
+            original_title={original_title}
+            release_date={release_date}
+            posterPath={posterPath}
+            trailer_key={showKey}
+            popularity={popularity}
+            narrative={narrative}
+            language={language}
+            vote_count={vote_count}
+          />,
+          document.body
+        )}
     </div>
   );
 };
