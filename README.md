@@ -79,9 +79,7 @@ Gemflix was developed by Monishohms.
 - Add some styles
 
 ## Author
-
-Monish Lal
-
+Name: Monish Lal
 Email: monishlal2105@gmail.com
 
 
