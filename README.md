@@ -1,28 +1,20 @@
-# Netflix-Gemini: Your Ultimate Film Guide! 🎬
+# Gemflix: Your Ultimate Film Guide! 🎬
 
 ## Overview
 
-Netflix-Gemini is a lightweight, customizable, and efficient tool for exploring and analyzing Netflix's extensive collection of movies. Built with simplicity and speed in mind, this application provides users with a seamless browsing experience, allowing them to discover new content, save favorites, and track their viewing history.
-
-## Features
-
-- **Explore Netflix Catalog:** Browse through Netflix's vast library of movies effortlessly.
-- **Search Functionality:** Quickly find specific titles using the search feature.
-- **Detailed Information:** Access comprehensive details about each title, including synopsis, cast, ratings, and more.
-- **User Profiles:** Create personalized user profiles to track viewing history and manage favorites.
-- **Responsive Design:** Enjoy a fully responsive interface that adapts to various screen sizes and devices.
+Gemflix is a lightweight, customizable, and efficient tool for exploring and analyzing Netflix's extensive collection of movies. Built with simplicity and speed in mind, this application provides users with a seamless browsing experience, allowing them to discover new content, save favorites, and track their viewing history.
 
 ## Getting Started
 
-To get started with Netflix-Gemini, follow these steps:
+To get started with Gemflix, follow these steps:
 
 1. **Clone the Repository:**
    ```
-   git clone https://github.com/Monishohms/Netflix-Gemini.git
+   git clone https://github.com/Monishohms/Gemflix.git
    ```
 2. **Navigate to the Project Directory:**
    ```
-   cd Netflix-Gemini
+   cd Gemflix
    ```
 3. **Install Dependencies:**
    ```
@@ -47,9 +39,9 @@ Contributions are welcome! If you'd like to contribute to Netflix-Gemini, please
 
 ## Credits
 
-Netflix-Gemini was developed by Monishohms.
+Gemflix was developed by Monishohms.
 
-## Creating a Netflix-Gemini project involves following steps:
+## Creating a Gemflix project involves following steps:
 
 - Create React App
 - Configured TailwindCSS
@@ -123,9 +115,5 @@ Netflix-Gemini was developed by Monishohms.
 - Update moviesSlice
 - Update Store with new movies Data
 - Create Secondary container
-- Add some styles
-
-## Author
-
-- Name: Monish Lal
-- Email: monishlal2105@gmail.com
+- # Add some styles
+  > > > > > > > 38536f8333aa946cca0968194addb60dfbddee35
