@@ -20,7 +20,6 @@ export const useBgTrailer = (movie_id) => {
     );
 
     const trailer = filteredMovie.length ? filteredMovie[0] : json.results[0];
-    console.log(trailer);
 
     dispatch(addBgTrailer(trailer));
   };

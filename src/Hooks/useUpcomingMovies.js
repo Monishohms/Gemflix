@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { API_options } from "../utils/Constant";
 import { useDispatch, useSelector } from "react-redux";
-import { addUpcomingMovies } from "../utils/moviesSlice";
+import { addUpcomingMovies, moviesData } from "../utils/moviesSlice";
 
 const useUpcomingMovies = () => {
   // Fetching the Data from TMDB api and updating the our reduxStore.
@@ -16,6 +16,7 @@ const useUpcomingMovies = () => {
     const json = await data?.json();
 
     dispatch(addUpcomingMovies(json?.results));
+    dispatch(moviesData(json?.results));
   };
 
   useEffect(() => {

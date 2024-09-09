@@ -20,7 +20,7 @@ const VideoTitle = ({
   const trailer = useSelector((store) => store.movies.bgTrailer);
 
   return (
-    <div className="absolute pt-48 px-12  text-white bg-gradient-to-r from-black w-screen aspect-video ">
+    <div className="absolute pt-20 px-6 md:pt-48 md:px-12  text-white bg-gradient-to-r from-black w-screen aspect-video ">
       {showModal &&
         createPortal(
           <ModalContent
@@ -36,19 +36,23 @@ const VideoTitle = ({
           />,
           document.app
         )}
-      <h1 className=" text-4xl font-extrabold">{title}</h1>
-      <p className="py-3 w-2/6 font-light">{overview}</p>
-      <div className=" flex">
+      <h1 className="text-sm font-bold md:text-4xl md:font-extrabold">
+        {title}
+      </h1>
+      <p className="w-7/6 text-xs md:text-xl py-3 md:w-2/6 font-light">
+        {overview}
+      </p>
+      <div className=" flex ">
         <button
           onClick={() => setShowModal(true)}
-          className="flex items-center text-lg bg-white shadow-lg text-black hover:bg-opacity-70  font-semibold rounded-md border border-black p-2 m-2 px-6 cursor-pointer"
+          className="mr-4 flex items-center md:text-lg bg-white shadow-lg text-black hover:bg-opacity-70  font-semibold rounded-md border border-black  p-1 md:p-2 md:m-2 md:px-6 cursor-pointer"
         >
-          <FaPlay className="text-2xl" />
+          <FaPlay className="text-sm md:text-2xl" />
           &nbsp; Play
         </button>
 
-        <button className="flex items-center text-lg font-semibold shadow-lg  rounded-md   border border-slate-500 p-2 m-2 px-6 cursor-pointer text-white">
-          <LuInfo className="text-2xl" />
+        <button className="flex items-center md:text-lg font-semibold shadow-lg  rounded-md   border border-slate-500 p-1 md:p-2 md:m-2 md:px-6 cursor-pointer text-white">
+          <LuInfo className="text-sm md:text-2xl" />
           &nbsp; More Info
         </button>
       </div>

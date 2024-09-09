@@ -60,14 +60,14 @@ const Header = () => {
   }, []);
 
   return (
-    <div className="absolute z-10  flex items-center justify-between px-32 py-2 bg-gradient-to-b from-black from-40% to-transparent  w-full">
-      <img className="w-48" src={LOGO_URL} alt="logo" />
+    <div className="absolute z-10  flex items-center justify-between px-10 md:px-32 py-2 bg-gradient-to-b from-black from-40% to-transparent  w-full">
+      <img className="w-32 md:w-48" src={LOGO_URL} alt="logo" />
 
       <div className=" flex items-center">
         {auth.currentUser && (
           <button
             onClick={handleGptSearch}
-            className="cursor-pointer flex items-center rounded-lg  border mr-20 p-3 text-white font-bold  bg-black active:border-blue-300"
+            className="cursor-pointer flex items-center rounded-lg  border p-1 mr-9 md:mr-20 md:p-3 text-white font-bold  bg-black active:border-blue-300"
           >
             {gptStatus ? (
               <>
@@ -76,7 +76,7 @@ const Header = () => {
               </>
             ) : (
               <>
-                <SiGooglegemini className="mr-2 font-bold text-xl text-blue-500 bg-white rounded-xl" />
+                <SiGooglegemini className="text-lg mr-2 md:font-bold md:text-xl text-blue-500 bg-white rounded-xl" />
                 AI SEARCH
               </>
             )}
@@ -84,7 +84,7 @@ const Header = () => {
         )}
         {auth.currentUser && (
           <button className="cursor-pointer " onClick={handleSignOut}>
-            <FaSignOutAlt className="text-3xl text-red-500 hover:text-red-600 active:text-red-700 shadow-lg" />
+            <FaSignOutAlt className="text-2xl md:text-3xl text-red-500 hover:text-red-600 active:text-red-700 shadow-lg" />
           </button>
         )}
       </div>
