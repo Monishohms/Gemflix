@@ -11,7 +11,6 @@ const moviesSlice = createSlice({
     playButton: false,
     allMoviesData: [],
     movieId: null,
-    modalStatus: false,
     allMoviesInfo: [],
   },
   reducers: {
@@ -43,12 +42,13 @@ const moviesSlice = createSlice({
       state.modalStatus = status;
 
       const filteredData = state.allMoviesData?.filter(
-        (data) => data?.id === state.movieId
+        (data) => data?.id === state.movieId,
+        (state.allMoviesInfo = [])
       );
       filteredData?.map((data) => state.allMoviesInfo.push([data, false]));
 
-      if (filteredData[0][0]?.id === state.movieId)
-        return (filteredData[0][1] = !state.modalStatus);
+      if (state.allMoviesInfo[0][0]?.id === state.movieId)
+        state.allMoviesInfo[0][1] = true;
     },
   },
 });
